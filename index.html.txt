@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CREATIFY | Art Store</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #120D0A;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* NAVIGATION BAR */
+
+        header {
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1D130E;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #FFB52E;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #FFB52E;
+        }
+
+        .cart {
+            background: #F04428;
+            padding: 10px 18px;
+            border-radius: 20px;
+            color: white;
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            padding: 100px 8%;
+            background: linear-gradient(
+                120deg,
+                #741F15,
+                #D94B1B,
+                #F5A623
+            );
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            max-width: 650px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 500px;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #FFF0D6;
+        }
+
+        .button {
+            display: inline-block;
+            background: #FFD447;
+            color: #28130B;
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: white;
+            transform: translateY(-4px);
+        }
+
+        /* ARTWORK SECTION */
+
+        .art-section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .section-description {
+            color: #BCA99D;
+            margin-bottom: 35px;
+        }
+
+        .art-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .art-card {
+            background: #211711;
+            padding: 15px;
+            border-radius: 18px;
+            transition: 0.3s;
+        }
+
+        .art-card:hover {
+            transform: translateY(-8px);
+            background: #302018;
+        }
+
+        .art-image {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .art-card h3 {
+            margin-top: 15px;
+            font-size: 17px;
+        }
+
+        .price {
+            color: #FFB52E;
+            font-weight: 700;
+            margin: 8px 0 15px;
+        }
+
+        .buy-button {
+            width: 100%;
+            border: none;
+            background: #F04428;
+            color: white;
+            padding: 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+        }
+
+        .buy-button:hover {
+            background: #FFB52E;
+            color: #21130D;
+        }
+
+        /* ABOUT SECTION */
+
+        .about {
+            padding: 65px 8%;
+            background: #211711;
+            text-align: center;
+        }
+
+        .about h2 {
+            color: #FFB52E;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            max-width: 650px;
+            margin: auto;
+            color: #D7C4B7;
+            line-height: 1.8;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #BCA99D;
+            background: #120D0A;
+        }
+
+        /* MOBILE DESIGN */
+
+        @media (max-width: 850px) {
+            .art-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .hero {
+                padding: 70px 8%;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .art-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <div class="logo">CREATIFY.</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#art">Artwork</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <div class="cart">
+            Cart: <span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero" id="home">
+        <h1>Discover Art. Inspire Life.</h1>
+
+        <p>
+            Explore beautiful artwork created by talented artists.
+            Find your favourite pieces and bring creativity
+            into your space.
+        </p>
+
+        <a href="#art" class="button">Explore Artwork →</a>
+    </section>
+
+    <!-- ARTWORK -->
+
+    <section class="art-section" id="art">
+
+        <h2 class="section-title">Featured Artwork</h2>
+
+        <p class="section-description">
+            Discover unique pieces made with creativity.
+        </p>
+
+        <div class="art-container">
+
+            <div class="art-card">
+                <img
+                    src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600"
+                    class="art-image"
+                    alt="Abstract colourful painting">
+
+                <h3>Sunset Dreams</h3>
+                <p class="price">$45.00</p>
+
+                <button class="buy-button"
+                    onclick="addToCart()">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="art-card">
+                <img
+                    src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600"
+                    class="art-image"
+                    alt="Colourful artwork">
+
+                <h3>Golden Bloom</h3>
+                <p class="price">$35.00</p>
+
+                <button class="buy-button"
+                    onclick="addToCart()">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="art-card">
+                <img
+                    src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?w=600"
+                    class="art-image"
+                    alt="Modern abstract artwork">
+
+                <h3>Burning Passion</h3>
+                <p class="price">$60.00</p>
+
+                <button class="buy-button"
+                    onclick="addToCart()">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="art-card">
+                <img
+                    src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=600"
+                    class="art-image"
+                    alt="Abstract canvas artwork">
+
+                <h3>Golden Horizon</h3>
+                <p class="price">$50.00</p>
+
+                <button class="buy-button"
+                    onclick="addToCart()">
+                    Add to Cart
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <h2>About Creatify</h2>
+
+        <p>
+            Creatify is a place where creativity meets opportunity.
+            We bring artists and art lovers together through
+            beautiful and inspiring artwork.
+        </p>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        © 2026 CREATIFY. All rights reserved.
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        let cartCount = 0;
+
+        function addToCart() {
+
+            cartCount++;
+
+            document.getElementById("cart-count").textContent
+                = cartCount;
+
+        }
+
+    </script>
+
+</body>
+</html>
